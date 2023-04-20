@@ -1,6 +1,6 @@
 # Asistencia MateCoders
 En este repositorio se cargaran los ejercicios, para la asistencia del
-més de octubre.
+Tercer Semetre
 ![logo](./img/logo.jpeg)
 
 ## Integrantes
