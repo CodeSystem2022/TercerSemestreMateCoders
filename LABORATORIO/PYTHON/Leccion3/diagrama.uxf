@@ -1,0 +1,33 @@
+<diagram program="umletino" version="15.1"><zoom_level>10</zoom_level><element><id>UMLPackage</id><coordinates><x>0</x><y>140</y><w>810</w><h>560</h></coordinates><panel_attributes>catalogo_peliculas
+--
+bg=orange</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>20</x><y>200</y><w>280</w><h>250</h></coordinates><panel_attributes>dominio
+--
+bg=orange</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>420</x><y>200</y><w>270</w><h>250</h></coordinates><panel_attributes>servicio
+--
+bg=orange</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>40</x><y>230</y><w>210</w><h>190</h></coordinates><panel_attributes>Pelicula
+--
+- nombre: str
+--
++ __str__()
+--
+Responsabilidades:
+- Representar un objeto película
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>440</x><y>230</y><w>210</w><h>190</h></coordinates><panel_attributes>CatalogoPeliculas
+--
++ ruta_archivo: str &lt;&lt;static&gt;&gt;
+--
++ agregar_pelicula(Pelicula) &lt;&lt;static&gt;&gt;
++ listar_peliculas() &lt;&lt;static&gt;&gt;
++ eliminar() &lt;&lt;static&gt;&gt;
+--
+Responsabilidades
+-- Realizar las operaciones sobre 
+    el archivo de peliculas.txt</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>230</x><y>500</y><w>230</w><h>130</h></coordinates><panel_attributes>test_catalogo_peliculas.py
+--
+Responsabilidades:
+-- Contiene un menú con 4 opciones:
+   1) Agregar película
+   2) Listar películas
+   3) Eliminar archivo de películas
+   4) Salir</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>240</x><y>310</y><w>220</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>200;10;10;10</additional_attributes></element><element><id>Text</id><coordinates><x>350</x><y>300</y><w>70</w><h>30</h></coordinates><panel_attributes>Agregar
+style=wordwrap</panel_attributes><additional_attributes></additional_attributes></element></diagram>
