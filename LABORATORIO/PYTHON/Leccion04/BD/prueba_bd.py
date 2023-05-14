@@ -9,6 +9,7 @@ conexion = psycopg2.connect(
     database='test_bd'
 )
 
+with conexion:
 # recuperamos registros ejecutor
 cursor = conexion.cursor()
 # creamos una sentencia
@@ -23,6 +24,8 @@ print(registros)
 # cerramos la conexion y el cursor
 cursor.close()
 conexion.close()
+
+
 
 
 
