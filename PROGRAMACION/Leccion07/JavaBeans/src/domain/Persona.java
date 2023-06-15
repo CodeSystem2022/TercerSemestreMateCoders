@@ -7,14 +7,14 @@ public class Persona implements Serializable{
     private String nombre;
     private String apellido;
     
-    //Contructor vacío: esto es obligatorio.
-    public Persona(){
-        
-    }
+    //Contructor vacio: es obligatorio
     
-    public Persona(String nombre, String apellido){
-       this.nombre = nombre;
-       this.apellido = apellido;
+    public Persona(){
+    }
+
+    public Persona(String nombre, String apellido) {
+        this.nombre = nombre;
+        this.apellido = apellido;
     }
 
     public String getNombre() {
