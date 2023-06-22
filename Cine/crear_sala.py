@@ -6,10 +6,10 @@ letras = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'  # Letras de las columnas
 num_filas = 15
 num_columnas = 20
 
-for fila in range(1, num_filas + 1):
-    for columna in range(num_columnas):
-        letra = letras[columna]
-        asiento = f'{letra}{fila}'
+for fila in range(num_filas):
+    letra = letras[fila]
+    for columna in range(1, num_columnas + 1):
+        asiento = f'{columna}{letra}'
         asientos[asiento] = False
 
 print(asientos)
