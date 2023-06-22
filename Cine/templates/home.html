@@ -1,12 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Cine los pipis</h1>
-</body>
-</html>
+{% extends './layouts/base.html' %}
+
+{% block title %}Home{% endblock title %}
+
+{% block content %}
+
+<div class="container-fluid p-5 my-5 bg-dark text-white">
+    <h1>Bienvenidos al cine MateCoders</h1>
+    <ul>
+        {% for pelicula in peliculas %}
+        <li>{{ pelicula }}</li>
+        {% endfor %}
+    </ul>
+</div>
+
+
+{% endblock content %}
+
