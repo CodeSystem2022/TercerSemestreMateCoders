@@ -2,12 +2,12 @@ from django.shortcuts import render
 from .models import Pelicula, Sala, Funcion
 
 def home(request):
-    peliculas = Pelicula.objects.all()
-    return render(request, 'home.html', {'peliculas': peliculas})
+    
+    return render(request, 'home.html', {})
 
 def cartelera(request):
-    
-    return render(request, 'cartelera.html', {})
+    funciones = Funcion.objects.all()
+    return render(request, 'cartelera.html', {'funciones': funciones})
 
 def boleteria(request):
     butacas_ocupadas = Funcion.objects.get(id=2).asientos_ocupados

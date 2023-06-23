@@ -6,15 +6,19 @@
 <div class="container-fluid p-5 my-5 bg-dark text-white">
     <h1>Boleteria</h1>
 </div>
-<form action="{% url '' %}" method="post"></form>
+
 <div class="container-fluid p-5 my-5 bg-dark text-white">
+    <div class="container-fluid m-3 bg-secondary">
+        <p class=""> </p>
+    </div>
+    <hr>
     <table class="table-dark">
         <tr>
             {% for butaca, ocupada in butacas_ocupadas.items %}
                 {% if ocupada %}
-                    <td class="bg-warning p-1">{{ butaca }}</td>
+                    <td><button type="button" class="btn btn-secondary m-1 p-1">{{ butaca }}</button></td>
                 {% else %}
-                    <td class="bg-success p-1">{{ butaca }}</td>
+                    <td><button type="button" class="btn btn-success m-1 p-1">{{ butaca }}</button></td>
                 {% endif %}
                 {% if forloop.counter|divisibleby:20 %}
                     </tr><tr>
