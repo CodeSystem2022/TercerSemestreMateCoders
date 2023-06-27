@@ -4,6 +4,16 @@
 
 {% block content %}
 
+{% if user.is_authenticated %}
+    <div>
+        <p>Bienvenido, {{ user.username }}.</p>
+    </div>
+{% else %}
+    <div>
+        <p>¿No estás registrado?</p>
+        <a href="{% url 'registro' %}">Regístrate aquí</a>
+    </div>
+{% endif %}
 
 
 
