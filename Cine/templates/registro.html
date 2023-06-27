@@ -1,16 +1,9 @@
 {% extends './layouts/base.html' %}
-
-
-
-
 {% block content %}
-
 <form method="POST">
     {% csrf_token %}
     {{ form.as_p }}
     <input type="password" name="contraseña" required>
     <button type="submit">Registrar</button>
 </form>
-
-
 {% endblock content %}

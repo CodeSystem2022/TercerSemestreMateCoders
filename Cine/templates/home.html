@@ -1,21 +1,140 @@
+
 {% extends './layouts/base.html' %}
-
 {% block title %}Home{% endblock title %}
-
 {% block content %}
+{% load static %}
 
-{% if user.is_authenticated %}
-    <div>
-        <p>Bienvenido, {{ user.username }}.</p>
+
+<section class="section section-sm section-fluid bg-default">
+    <div class="container">
+      <h3>Peliculas</h3>
     </div>
-{% else %}
-    <div>
-        <p>¿No estás registrado?</p>
-        <a href="{% url 'registro' %}">Regístrate aquí</a>
+    <!-- Owl Carousel-->
+    <div class="owl-carousel owl-classic owl-timeline" data-items="1" data-md-items="2" data-lg-items="3" data-xl-items="4" data-margin="30" data-autoplay="false" data-nav="true" data-dots="true">
+      <div class="owl-item">
+        <!-- Thumbnail Classic-->
+        <article class="thumbnail thumbnail-mary">
+          <div class="thumbnail-mary-figure"><img src="images/gallery-image-11-420x308.jpg" alt="" width="420" height="308"/>
+          </div>
+          <div class="thumbnail-mary-caption"><a class="icon fl-bigmug-line-zoom60" href="images/gallery-image-11-1200x800-original.jpg" data-lightgallery="item"><img src="images/gallery-image-11-420x308.jpg" alt="" width="420" height="308"/></a>
+          </div>
+        </article>
+        <div class="thumbnail-mary-description">
+          <h5 class="thumbnail-mary-project"><a href="#">Pelicula 1</a></h5><span class="thumbnail-mary-decor"></span>
+          <h5 class="thumbnail-mary-time">
+          </h5>
+        </div>
+      </div>
+      <div class="owl-item">
+        <!-- Thumbnail Classic-->
+        <article class="thumbnail thumbnail-mary">
+          <div class="thumbnail-mary-figure"><img src="images/gallery-image-12-420x308.jpg" alt="" width="420" height="308"/>
+          </div>
+          <div class="thumbnail-mary-caption"><a class="icon fl-bigmug-line-zoom60" href="images/gallery-image-12-1200x800-original.jpg" data-lightgallery="item"><img src="images/gallery-image-12-420x308.jpg" alt="" width="420" height="308"/></a>
+          </div>
+        </article>
+        <div class="thumbnail-mary-description">
+          <h5 class="thumbnail-mary-project"><a href="#">Pelicula 2</a></h5><span class="thumbnail-mary-decor"></span>
+          <h5 class="thumbnail-mary-time">
+          </h5>
+        </div>
+      </div>
+      <div class="owl-item">
+        <!-- Thumbnail Classic-->
+        <article class="thumbnail thumbnail-mary">
+          <div class="thumbnail-mary-figure"><img src="images/gallery-image-13-420x308.jpg" alt="" width="420" height="308"/>
+          </div>
+          <div class="thumbnail-mary-caption"><a class="icon fl-bigmug-line-zoom60" href="images/gallery-image-13-1200x800-original.jpg" data-lightgallery="item"><img src="images/gallery-image-13-420x308.jpg" alt="" width="420" height="308"/></a>
+          </div>
+        </article>
+        <div class="thumbnail-mary-description">
+          <h5 class="thumbnail-mary-project"><a href="#">Pelicula 3</a></h5><span class="thumbnail-mary-decor"></span>
+          <h5 class="thumbnail-mary-time">
+          </h5>
+        </div>
+      </div>
+      <div class="owl-item">
+        <!-- Thumbnail Classic-->
+        <article class="thumbnail thumbnail-mary">
+          <div class="thumbnail-mary-figure"><img src="images/gallery-image-14-420x308.jpg" alt="" width="420" height="308"/>
+          </div>
+          <div class="thumbnail-mary-caption"><a class="icon fl-bigmug-line-zoom60" href="images/gallery-image-14-1200x800-original.jpg" data-lightgallery="item"><img src="images/gallery-image-14-420x308.jpg" alt="" width="420" height="308"/></a>
+          </div>
+        </article>
+        <div class="thumbnail-mary-description">
+          <h5 class="thumbnail-mary-project"><a href="#">Pelicula 4</a></h5><span class="thumbnail-mary-decor"></span>
+          <h5 class="thumbnail-mary-time">
+          </h5>
+        </div>
+      </div>
+      <div class="owl-item">
+        <!-- Thumbnail Classic-->
+        <article class="thumbnail thumbnail-mary">
+          <div class="thumbnail-mary-figure"><img src="images/gallery-image-15-420x308.jpg" alt="" width="420" height="308"/>
+          </div>
+          <div class="thumbnail-mary-caption"><a class="icon fl-bigmug-line-zoom60" href="images/gallery-image-15-1200x800-original.jpg" data-lightgallery="item"><img src="images/gallery-image-15-420x308.jpg" alt="" width="420" height="308"/></a>
+          </div>
+        </article>
+        <div class="thumbnail-mary-description">
+          <h5 class="thumbnail-mary-project"><a href="#">Pelicula 4</a></h5><span class="thumbnail-mary-decor"></span>
+          <h5 class="thumbnail-mary-time">
+          </h5>
+        </div>
+      </div>
+      <div class="owl-item">
+        <!-- Thumbnail Classic-->
+        <article class="thumbnail thumbnail-mary">
+          <div class="thumbnail-mary-figure"><img src="images/gallery-image-16-420x308.jpg" alt="" width="420" height="308"/>
+          </div>
+          <div class="thumbnail-mary-caption"><a class="icon fl-bigmug-line-zoom60" href="images/gallery-image-16-1200x800-original.jpg" data-lightgallery="item"><img src="images/gallery-image-16-420x308.jpg" alt="" width="420" height="308"/></a>
+          </div>
+        </article>
+        <div class="thumbnail-mary-description">
+          <h5 class="thumbnail-mary-project"><a href="#">Pelicula 5</a></h5><span class="thumbnail-mary-decor"></span>
+          <h5 class="thumbnail-mary-time">
+          </h5>
+        </div>
+      </div>
     </div>
-{% endif %}
+  </section>
+
+  <section class="section section-sm section-fluid bg-default">
+    <div class="container">
+            {% if user.is_authenticated %}
+            <div class="container text-center">
+                <div class="alert alert-success">
+                    <p>Bienvenido, {{ user.username }}.</p>
+                </div>
+            </div>
+            {% else %}
+            <div class="container text-center">
+                <div class="alert alert-warning">
+                    <p>¿No estás registrado?</p>
+                    <a href="{% url 'registro' %}" class="btn btn-primary">Regístrate aquí</a>
+                </div>
+                <div class="mt-3">
+                    <form method="post" action="{% url 'login' %}">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="username" placeholder="Nombre de usuario" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" name="password" placeholder="Contraseña" required>
+                        </div>
+                        <button type="submit" class="btn btn-secondary">Iniciar sesión</button>
+                    </form>
+                </div>
+            </div>
+        {% endif %}
+
+        {% if login_success %}
+            <div class="alert alert-success">
+                ¡Inicio de sesión exitoso!
+            </div>
+        {% endif %}
+    </div>
+</section>
 
 
 
 {% endblock content %}
-

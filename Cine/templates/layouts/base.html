@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +7,12 @@
     <title>{% block title %}{% endblock title %}</title>
     {% load bootstrap5 %}
     {% bootstrap_css %}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     {% bootstrap_javascript %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css'%}" />
+    <link rel="stylesheet" href="{% static 'css/fonts.css'%}" />
+    <link rel="stylesheet" href="{% static 'css/style.css'%}" />
+    
 </head>
 <body class="bg-secondary">
     
@@ -20,5 +26,9 @@
         {% include './partials/footer.html' %}
     </footer>
     
+    <script src="{% static 'js/core.min.js'%}"></script>
+    <script src="{% static 'js/script.js'%}"></script>
+    <script src="{% static 'js/galeria.js'%}"></script>
 </body>
+
 </html>

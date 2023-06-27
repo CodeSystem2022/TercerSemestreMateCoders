@@ -3,10 +3,13 @@ from .models import Pelicula, Sala, Funcion
 from .forms import CompraForm
 from django.contrib.auth.hashers import make_password
 from .forms import RegistroForm
+from django.contrib.auth import authenticate, login
+from django.contrib import messages
 
 def home(request):
-    
-    return render(request, 'home.html', {'user': request.user})
+    # Verificar si el inicio de sesión fue exitoso
+    login_success = request.session.pop('login_success', False)
+    return render(request, 'home.html', {'user': request.user, 'login_success': login_success})
 
 def cartelera(request):
     funciones = Funcion.objects.all()
@@ -48,4 +51,17 @@ def registro(request):
     else:
         form = RegistroForm()
     return render(request, 'registro.html', {'form': form})
+
+
+def login_view(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            messages.success(request, '¡Inicio de sesión exitoso!')
+        else:
+            messages.error(request, 'Nombre de usuario o contraseña incorrectos.')
+    return redirect('home')
 
