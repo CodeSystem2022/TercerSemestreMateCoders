@@ -1,9 +1,19 @@
 {% extends './layouts/base.html' %}
 {% block content %}
-<form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="password" name="contraseña" required>
-    <button type="submit">Registrar</button>
-</form>
+<section class="section section-sm section-fluid bg-default">
+    <div class="container">
+        <form method="POST" class="container mt-4">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="row justify-content-center">
+                <div class="col-sm-6">
+                    <button type="submit" class="btn btn-primary">Registrar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+
+
+
 {% endblock content %}
