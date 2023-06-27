@@ -70,7 +70,7 @@ class Compra(models.Model):
     entradas_menores = models.IntegerField(blank=False, null=False)
     entradas_mayores = models.IntegerField(blank=False, null=False)
     asientos = models.JSONField(default=dict)
-    total = models.DecimalField(max_digits=8, decimal_places=2)
+    total = models.DecimalField(max_digits=8, decimal_places=2, null=True)
 
     def __str__(self):
         return f'Asientos: {self.asientos} - Total: {self.total} Función: {self.funcion}'

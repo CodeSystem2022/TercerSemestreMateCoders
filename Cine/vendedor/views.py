@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from .models import Pelicula, Sala, Funcion
 from .forms import CompraForm
+from decimal import Decimal
+from django.http import HttpResponse
 
 def home(request):
     
@@ -19,12 +21,14 @@ def boleteria(request):
             precio_menores = Funcion.objects.get(id=funcion).precio.menores
             entradas_mayores = request.POST.get('entradas_mayores')
             entradas_menores = request.POST.get('entradas_menores')
-            total = precio_mayores * entradas_mayores + precio_menores * entradas_menores
+            total = precio_mayores * Decimal(entradas_mayores) + precio_menores * Decimal(entradas_menores)
+            cantidad_entradas = entradas_mayores + entradas_menores
             form.total = total
+        
             form.save()
             
             butacas_ocupadas = Funcion.objects.get(id=funcion).asientos_ocupados
-            return render(request, 'seleccionar_butacas.html', {'form': form, 'butacas_ocupadas': butacas_ocupadas})
+            return render(request, 'seleccionar_butacas.html', {'form': form, 'butacas_ocupadas': butacas_ocupadas, 'cantidad_entradas': cantidad_entradas})
     else:
         form = CompraForm()
     
@@ -33,4 +37,9 @@ def boleteria(request):
 
 def about(request):
     return render(request, 'about.html', {})
+
+def compra_exitosa(request):
+    #if request.method == 'POST':
+        #butaca = request.POST.get()
+    return HttpResponse(request.GET)
 

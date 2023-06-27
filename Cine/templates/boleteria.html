@@ -12,7 +12,7 @@
         <p class=""> </p>
     </div>
     <hr>
-    <form action="{% url 'boleteria' %}" method="post">
+    <form action="{% url 'boleteria' %}" method="POST">
         {% csrf_token %}
         {{ form.as_p }}
 
