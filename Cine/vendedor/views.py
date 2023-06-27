@@ -1,10 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Pelicula, Sala, Funcion
 from .forms import CompraForm
+from django.contrib.auth.hashers import make_password
+from .forms import RegistroForm
 
 def home(request):
     
-    return render(request, 'home.html', {})
+    return render(request, 'home.html', {'user': request.user})
 
 def cartelera(request):
     funciones = Funcion.objects.all()
@@ -33,4 +35,17 @@ def boleteria(request):
 
 def about(request):
     return render(request, 'about.html', {})
+
+
+def registro(request):
+    if request.method == 'POST':
+        form = RegistroForm(request.POST)
+        if form.is_valid():
+            usuario = form.save(commit=False)
+            usuario.contraseña = make_password(form.cleaned_data['contraseña'])
+            usuario.save()
+            return redirect('home')
+    else:
+        form = RegistroForm()
+    return render(request, 'registro.html', {'form': form})
 
