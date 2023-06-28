@@ -37,13 +37,23 @@
         text-align: center;
         margin-bottom: 5px;
     }
+    h1  {
+        font-size: 30px;
+        font-weight: bold;
+        color: #f2c944;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 20px;
+        text-shadow: 0px 0px 10px rgba(242, 201, 68, 0.8);
+    }
 </style>
 
 <div class="container-fluid p-5 my-5">
     <h1 class="text-center mb-5" style="color: #f2c944;">Bienvenidos al cine MateCoders</h1>
 
     <div class="row">
-        <h6 class="col-12 text-center" style="color: #f2c944;">Información de la función</h6>
+        <h6 class="col-12 text-center" style="color: #f2c944;">Funciónes de la Semana</h6>
         {% for funcion in funciones %}
             <div class="col-sm-4">
                 <div class="card">
