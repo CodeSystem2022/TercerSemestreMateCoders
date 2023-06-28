@@ -21,7 +21,7 @@ class Pelicula(models.Model):
         ))
     idioma = models.CharField(max_length=20, blank=False, null=False, default='Es', choices=(('Es', 'Español'), ('En', 'Ingles'), ('Pr', 'Portugues')))
     subtitulos = models.BooleanField(default=False)
-    cartel = models.ImageField(upload_to='images/', default='static/images/no-image.png')
+    cartel = models.ImageField(upload_to='static/images/', default='static/images/no-image.png')
     director = models.CharField(max_length=50, blank=False, null=False, default="--")
     publicadora = models.CharField(max_length=50, blank=False, null=False, default="--")
     fecha_estreno = models.DateField(blank=False, null=False, default=timezone.now)

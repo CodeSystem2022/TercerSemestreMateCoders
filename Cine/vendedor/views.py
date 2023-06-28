@@ -5,8 +5,8 @@ from decimal import Decimal
 from django.http import HttpResponse
 
 def home(request):
-    
-    return render(request, 'home.html', {})
+    ultimas_peliculas = Pelicula.objects.order_by('-fecha_estreno')[:5]
+    return render(request, 'home.html', {'peliculas': ultimas_peliculas})
 
 def cartelera(request):
     funciones = Funcion.objects.all()

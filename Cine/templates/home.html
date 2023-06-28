@@ -1,10 +1,43 @@
 {% extends './layouts/base.html' %}
+{% load static %}
 
 {% block title %}Home{% endblock title %}
 
 {% block content %}
 
+<style>
+    .carousel-item img {
+      max-width: 100%;
+      max-height: 500px; /* Ajusta la altura máxima según tus necesidades */
+    }
+    </style>
+    <h2>Estrenos</h2>
 
+    <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+    
+      <!-- Slides -->
+      <div class="carousel-inner">
+        {% for pelicula in peliculas %}
+          <div class="carousel-item {% if forloop.first %}active{% endif %}">
+            <img src="{{ pelicula.cartel.url }}" alt="{{ pelicula.title }}">
+            <div class="carousel-caption p-5">
+              <h3>{{ pelicula.title }}</h3>
+              <p>Fecha de estreno: {{ pelicula.fecha_estreno }}</p>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    
+      <!-- Controls -->
+      <a class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </a>
+      <a class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </a>
+    </div>
 
 
 {% endblock content %}
