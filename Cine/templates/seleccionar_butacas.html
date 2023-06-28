@@ -8,7 +8,7 @@
 </div>
 
 <div class="container-fluid p-5 my-5 bg-dark text-white">
-    
+
     <hr>
 
     <form action="{% url 'compra_exitosa' %}" id="butacas-form" method="post">
@@ -20,7 +20,7 @@
             <tr>
                 {% for butaca, ocupada in butacas_ocupadas.items %}
                     <td>
-                        <button id="butaca-{{ butaca }}" style="width: 40px" type="button" class="butaca button-btn btn m-1 p-1{% if ocupada %} btn-secondary{% else %} btn-success{% endif %}">
+                        <button id="butaca-{{ butaca }}" style="width: 40px" type="button" class="butaca button-btn btn m-1 p-1{% if ocupada %} btn-secondary{% else %} btn-success{% endif %}" onclick="seleccionarButaca(event)">
                             {{ butaca }}
                         </button>
                     </td>
@@ -30,7 +30,7 @@
                 {% endfor %}
             </tr>
         </table>
-        
+
         <button type="submit">Continuar</button>
     </form>
 </div>
@@ -47,12 +47,12 @@
     // Función para manejar el evento de selección de una butaca
     function seleccionarButaca(event) {
         var butaca = event.target;
-        
+
         // Verificar si la butaca está ocupada
         if (butaca.classList.contains('btn-secondary')) {
             return; // Ignorar butacas ocupadas
         }
-        
+
         // Verificar si la butaca ya ha sido seleccionada
         if (butaca.classList.contains('btn-primary')) {
             butaca.classList.remove('btn-primary');
@@ -68,9 +68,9 @@
     }
 
     // Agregar el evento click a todos los botones de butacas
-    var butacas = document.getElementsByClassName('butaca');
-    for (var i = 0; i < butacas.length; i++) {
-        butacas[i].addEventListener('click', seleccionarButaca);
+    var botonesButacas = document.getElementsByClassName('butaca');
+    for (var i = 0; i < botonesButacas.length; i++) {
+        botonesButacas[i].addEventListener('click', seleccionarButaca);
     }
 
     // Validar la cantidad de butacas seleccionadas antes de enviar el formulario
@@ -82,6 +82,5 @@
         }
     });
 </script>
-
 
 {% endblock content %}
