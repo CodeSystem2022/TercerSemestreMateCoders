@@ -12,20 +12,13 @@
         <p class=""> </p>
     </div>
     <hr>
-    <table class="table-dark">
-        <tr>
-            {% for butaca, ocupada in butacas_ocupadas.items %}
-                {% if ocupada %}
-                    <td><button style="width: 40px" type="button" class="btn btn-secondary m-1 p-1">{{ butaca }}</button></td>
-                {% else %}
-                    <td><button style="width: 40px" type="button" class="btn btn-success m-1 p-1">{{ butaca }}</button></td>
-                {% endif %}
-                {% if forloop.counter|divisibleby:20 %}
-                    </tr><tr>
-                {% endif %}
-            {% endfor %}
-        </tr>
-    </table>
+    <form action="{% url 'boleteria' %}" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button type="submit">Seleccionar butacas</button>
+    </form>
+    
 </div>
 
 

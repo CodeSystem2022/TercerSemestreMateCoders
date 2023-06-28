@@ -4,7 +4,7 @@ asientos = {}
 letras = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'  # Letras de las columnas
 
 num_filas = 15
-num_columnas = 20
+num_columnas = 15
 
 for fila in range(num_filas):
     letra = letras[fila]
@@ -14,5 +14,5 @@ for fila in range(num_filas):
 
 print(asientos)
 
-with open('sala.JSON', 'w') as file:
+with open('Cine/sala.JSON', 'w') as file:
     json.dump(asientos, file)
