@@ -5,20 +5,24 @@
 {% block content %}
 <div class="container-fluid p-5 my-5 bg-dark text-white">
     <h1>Bienvenidos al cine MateCoders</h1>
+    
     <ul>
-        {% for funcion in funciones %}
         <div class="row">
-            <div class="col-sm-4">{{ funcion.pelicula.title }} - Sala {{ funcion.sala }} </div>
-            <div class="col-md-8">
-                {% for  in  %}
-                {% comment "funciones de la semana" %} funciones del {% endcomment %}
-                {% endfor %}
-            </div>
-        </div>
-        
-
-        {% endfor %}
+            <h6>Información de la función</h6>
+            {% for funcion in funciones %}
+                <div class="col-sm-4">
+                    <div class="day">
+                        <p>Sala: {{ funcion.sala }}</p>
+                        <p>Pelicula: {{ funcion.pelicula }}</p>
+                        <p>Fecha: {{ funcion.fecha }}</p>
+                        <p>Hora:  {{ funcion.hora }}</p>                        
+                    </div>
+                <div class="col-sm-8">Sala: {{ funcion.sala }}</div>
+                </div>
+            {% endfor %}
+        </div>    
     </ul>
+   
 </div>
 
 {% endblock content %}
