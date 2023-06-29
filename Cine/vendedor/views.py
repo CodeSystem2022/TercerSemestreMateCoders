@@ -39,7 +39,7 @@ def about(request):
     return render(request, 'about.html', {})
 
 def compra_exitosa(request):
-    #if request.method == 'POST':
-        #butaca = request.POST.get()
-    return HttpResponse(request.GET)
+    if request.method == 'POST':
+        butacas = request.POST.items()
+        return HttpResponse(butacas)
 
