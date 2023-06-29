@@ -20,9 +20,10 @@
             <tr>
                 {% for butaca, ocupada in butacas_ocupadas.items %}
                     <td>
-                        <button id="butaca-{{ butaca }}" style="width: 40px" type="button" class="butaca button-btn btn m-1 p-1{% if ocupada %} btn-secondary{% else %} btn-success{% endif %}" onclick="seleccionarButaca(event)">
+                        <input type="checkbox" class="form-check-input" value="{{ butaca }}" id="butaca-{{ butaca }} {% if ocupada %}disabled{% endif %} autocomplete="off" ">
+                        <label class="form-check-label" for="butaca-{{ butaca }}">
                             {{ butaca }}
-                        </button>
+                        </label>
                     </td>
                     {% if forloop.counter|divisibleby:15 %}
                         </tr><tr>
@@ -35,52 +36,5 @@
     </form>
 </div>
 
-<script>
-    // JavaScript para controlar la selección de butacas y validar la cantidad seleccionada
-
-    // Obtener la cantidad de entradas desde el input oculto
-    var cantidadEntradas = parseInt(document.getElementById('cantidad-entradas').value);
-
-    // Contador de butacas seleccionadas
-    var butacasSeleccionadas = 0;
-
-    // Función para manejar el evento de selección de una butaca
-    function seleccionarButaca(event) {
-        var butaca = event.target;
-
-        // Verificar si la butaca está ocupada
-        if (butaca.classList.contains('btn-secondary')) {
-            return; // Ignorar butacas ocupadas
-        }
-
-        // Verificar si la butaca ya ha sido seleccionada
-        if (butaca.classList.contains('btn-primary')) {
-            butaca.classList.remove('btn-primary');
-            butacasSeleccionadas--;
-        } else {
-            if (butacasSeleccionadas < cantidadEntradas) {
-                butaca.classList.add('btn-primary');
-                butacasSeleccionadas++;
-            } else {
-                alert('Has alcanzado el límite de butacas seleccionadas.');
-            }
-        }
-    }
-
-    // Agregar el evento click a todos los botones de butacas
-    var botonesButacas = document.getElementsByClassName('butaca');
-    for (var i = 0; i < botonesButacas.length; i++) {
-        botonesButacas[i].addEventListener('click', seleccionarButaca);
-    }
-
-    // Validar la cantidad de butacas seleccionadas antes de enviar el formulario
-    var form = document.getElementById('butacas-form');
-    form.addEventListener('submit', function(event) {
-        if (butacasSeleccionadas !== cantidadEntradas) {
-            alert('Debes seleccionar la cantidad correcta de butacas.');
-            event.preventDefault();
-        }
-    });
-</script>
 
 {% endblock content %}
