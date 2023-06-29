@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Funcion, Sala, Precio, Pelicula
+from .models import Funcion, Sala, Precio, Pelicula, Compra
 
 @admin.register(Funcion)
 class FuncionAdmin(admin.ModelAdmin):
@@ -15,4 +15,8 @@ class PeliculaAdmin(admin.ModelAdmin):
 
 @admin.register(Precio)
 class PrecioAdmin(admin.ModelAdmin):
+    pass
+
+@admin.register(Compra)
+class CompraAdmin(admin.ModelAdmin):
     pass
