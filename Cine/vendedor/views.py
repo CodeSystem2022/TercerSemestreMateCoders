@@ -22,13 +22,13 @@ def boleteria(request):
             entradas_mayores = request.POST.get('entradas_mayores')
             entradas_menores = request.POST.get('entradas_menores')
             total = precio_mayores * Decimal(entradas_mayores) + precio_menores * Decimal(entradas_menores)
-            cantidad_entradas = entradas_mayores + entradas_menores
+            cantidad_entradas = int(entradas_mayores) + int(entradas_menores)
             form.total = total
         
-            form.save()
-            
+            instancia = form.save()
+            id_compra = instancia.id
             butacas_ocupadas = Funcion.objects.get(id=funcion).asientos_ocupados
-            return render(request, 'seleccionar_butacas.html', {'form': form, 'butacas_ocupadas': butacas_ocupadas, 'cantidad_entradas': cantidad_entradas})
+            return render(request, 'seleccionar_butacas.html', {'id_compra': id_compra, 'butacas_ocupadas': butacas_ocupadas, 'cantidad_entradas': cantidad_entradas})
     else:
         form = CompraForm()
     
@@ -40,6 +40,8 @@ def about(request):
 
 def compra_exitosa(request):
     if request.method == 'POST':
-        butacas = request.POST.items()
+        datos_compra = request.POST.items()
+        entradas =
+
         return HttpResponse(butacas)
 
