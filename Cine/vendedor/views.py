@@ -60,5 +60,6 @@ def compra_exitosa(request):
 
     
 
-        return HttpResponse(butacas)
+        return render(request, 'ticket.html', {'compra':compra})
+    
 
