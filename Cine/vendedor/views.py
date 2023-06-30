@@ -56,10 +56,10 @@ def compra_exitosa(request):
         funcion.asientos_ocupados = asientos_funcion
         funcion.save()
         compra.save()
-
+        
 
     
 
-        return render(request, 'ticket.html', {'compra':compra})
+        return render(request, 'ticket.html', {'butacas':butacas, 'funcion': funcion, 'compra': compra,})
     
 

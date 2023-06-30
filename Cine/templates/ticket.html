@@ -1,11 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+{% extends './layouts/base.html' %}
+
+{% load static %}
+
+{% block title %}Tickets{% endblock title %}
+
+{% block content %}
+<div class="container-fluid p-5 my-5 bg-dark text-white">
+    <h2>Tickets</h2>
+        {% for butaca, dato in butacas.items %}
+        <div class="col-sm-4">
+            <div class="card text-white bg-secondary mb-3">
+                <div class="card-body">
+                    <table class="table table-dark table-hover">
+                        <tr>
+                            <td>Pelicula:</td>
+                            <td>{{ funcion.pelicula }}</td>
+                        </tr>
+                        <tr>
+                            <td>Horario:</td>
+                            <td>{{ funcion.hora }}</td>
+                        </tr>
+                        <tr>
+                            <td>Fecha:</td>
+                            <td>{{ funcion.fecha }}</td>
+                        </tr>
+                        <tr>
+                            <td>Sala:</td>
+                            <td>{{ funcion.sala }}</td>
+                        </tr>
+                        <tr>
+                            <td>Butaca:</td>
+                            <td>{{ butaca }}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
     
-</body>
-</html>
+</div>
+{% endblock content %}
