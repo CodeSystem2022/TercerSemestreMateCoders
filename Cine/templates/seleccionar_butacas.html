@@ -22,7 +22,7 @@
                 {% for butaca, ocupada in butacas_ocupadas.items %}
                     <td>
                         <input type="checkbox" class="btn-check" name="butaca_{{ butaca }}" id="{{ butaca }}" value="True" autocomplete="off" {% if ocupada %}disabled{% endif %}>
-                        <label class="btn btn-outline-success" for="{{butaca}}">{{ butaca }}</label><br>
+                        <label class="btn btn-{% if ocupada %}secondary{% else %}outline-success{% endif %}" for="{{butaca}}">{{ butaca }}</label><br>
                     </td>
                     {% if forloop.counter|divisibleby:15 %}
                         </tr><tr>
