@@ -14,14 +14,15 @@
     <form action="{% url 'compra_exitosa' %}" id="butacas-form" method="post">
         {% csrf_token %}
 
-        <input type="hidden" id="cantidad-entradas" value="{{ cantidad_entradas }}">
+        <input type="hidden" id="cantidad-entradas" name="compra_cantidad" value="{{ cantidad_entradas }}">
+        <input type="hidden" name="compra_id" value="{{ id_compra }}">
 
         <table class="table-dark">
             <tr>
                 {% for butaca, ocupada in butacas_ocupadas.items %}
                     <td>
                         <input type="checkbox" class="btn-check" name="butaca_{{ butaca }}" id="{{ butaca }}" value="True" autocomplete="off" {% if ocupada %}disabled{% endif %}>
-                        <label class="btn btn-outline-success" for="{{butaca}}">{{ butaca }}</label><br>
+                        <label class="btn btn-{% if ocupada %}secondary{% else %}outline-success{% endif %}" for="{{butaca}}">{{ butaca }}</label><br>
                     </td>
                     {% if forloop.counter|divisibleby:15 %}
                         </tr><tr>
@@ -33,7 +34,32 @@
 
         
 
-        <button type="submit">Continuar</button>
+        <button type="submit" onclick="return validarSeleccion()">Continuar</button>
     </form>
 </div>
 {% endblock content %}
+
+{% block scripts %}
+<script>
+    function validarSeleccion() {
+        var cantidadEntradas = parseInt(document.getElementById("cantidad-entradas").value);
+        var checkboxes = Array.from(document.getElementsByClassName('btn-check')); // Convertir a un array
+
+        var cantidadSeleccionada = checkboxes.reduce(function (contador, checkbox) {
+            if (checkbox.checked) {
+                return contador + 1;
+            } else {
+                return contador;
+            }
+        }, 0);
+
+        if (cantidadSeleccionada !== cantidadEntradas) {
+            alert("La cantidad de butacas seleccionadas no coincide con la cantidad de entradas.");
+            return false; // Detener el envío del formulario
+        }
+
+        return true; // Permitir el envío del formulario
+    }
+    
+</script>
+{% endblock scripts %}
