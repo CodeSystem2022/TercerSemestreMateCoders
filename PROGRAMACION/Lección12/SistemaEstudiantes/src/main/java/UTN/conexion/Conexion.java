@@ -1,18 +1,17 @@
 package UTN.conexion;
-import com.mysql.cj.jdbc.Driver;
 
-import javax.swing.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Conexion {
-    public static Connection getConnnection(){
+    public static Connection getConnection(){
         Connection conexion = null;
         //Variables para conectarnos a la base de datos
         var baseDatos = "estudiantes";
         var url = "jdbc:mysql://localhost:3306/"+baseDatos;
         var usuario = "root";
+        //PONER LA CONTRASEÑA DE CADA ALUMNO  ------------------------------------------------------------------------------------------------------------------------
         var password = "admin";
 
         //cargamos la clase del driver de mysqlen memoria
@@ -24,5 +23,4 @@ public class Conexion {
         } //Fin catch
         return conexion;
     } //Fin método Connection
-     // ghdas
 }

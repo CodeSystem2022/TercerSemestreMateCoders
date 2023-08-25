@@ -8,7 +8,7 @@ public class Estudiante {
     private String email;
 
     public Estudiante(){} //Constructor vacío
-        public Estudiante( int idEstudiante){ //Constructor para la llave primaria
+    public Estudiante( int idEstudiante){ //Constructor para la llave primaria
             this.idEstudiante = idEstudiante;
     }
     // Constructor para insertar un nuevo estudiante
